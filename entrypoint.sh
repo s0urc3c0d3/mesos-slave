@@ -2,6 +2,11 @@
 
 #Obrain the IPs of ZK instances
 
+cron 
+crontab -r
+echo "*/5 * * * * /gen_hosts.sh > /etc/hosts" > /tmp/mycron 
+crontab /tmp/mycron
+
 ZK_IPs=","
 
 for i in $(curl -s rancher-metadata.rancher.internal/2015-12-19/stacks/mesos/services/zookeeper/containers/ | awk -F= '{print $2}')
