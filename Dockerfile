@@ -1,4 +1,4 @@
-from mesosphere/mesos-slave:1.3.0
+from mesosphere/mesos-slave:1.2.1
 run apt-get update ; curl -sSL https://dl.bintray.com/emccode/dvdcli/install | sh -s stable
 add entrypoint.sh /entrypoint.sh
 expose 5051
