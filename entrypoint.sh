@@ -10,4 +10,4 @@ do
 done
 ZK_IPs=$(echo $ZK_IPs | sed 's/,,//g')
 
-exec /usr/sbin/mesos-slave --master=zk://${ZK_IPs}/mesos --work_dir=${MESOS_WORK_DIR} --port=${MESOS_PORT} --log_dir=${MESOS_LOG_DIR} --containerizers=${MESOS_CONTAINERIZERS} --switch_user=${MESOS_SWITCH_USER}
+exec /usr/sbin/mesos-slave --master=zk://${ZK_IPs}/mesos --work_dir=${MESOS_WORK_DIR} --port=${MESOS_PORT} --log_dir=${MESOS_LOG_DIR} --containerizers=${MESOS_CONTAINERIZERS} --switch_user=${MESOS_SWITCH_USER} --launcher=posix
