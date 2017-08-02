@@ -16,6 +16,6 @@ done
 ZK_IPs=$(echo $ZK_IPs | sed 's/,,//g')
 
 #tymczasowy fix hostname
-my_hostname=$(rancher-metadata.rancher.internal/2015-12-19/self/host/agent_ip)
+my_hostname=$(curl -s rancher-metadata.rancher.internal/2015-12-19/self/host/agent_ip)
 
 exec /usr/sbin/mesos-slave --master=zk://${ZK_IPs}/mesos --work_dir=${MESOS_WORK_DIR} --port=${MESOS_PORT} --log_dir=${MESOS_LOG_DIR} --containerizers=${MESOS_CONTAINERIZERS} --switch_user=${MESOS_SWITCH_USER} --launcher=posix --hostname=${my_hostname}
